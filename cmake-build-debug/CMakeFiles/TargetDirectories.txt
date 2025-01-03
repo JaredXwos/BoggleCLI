@@ -1,0 +1,3 @@
+C:/Users/hatoa/CLionProjects/BoggleCLI/cmake-build-debug/CMakeFiles/BoggleCLI.dir
+C:/Users/hatoa/CLionProjects/BoggleCLI/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/hatoa/CLionProjects/BoggleCLI/cmake-build-debug/CMakeFiles/rebuild_cache.dir
