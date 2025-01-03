@@ -26,17 +26,17 @@ def process_permutations(input_file, output_file):
         mirror_permutation = permutation[::-1]  # Reverse the permutation
 
         if permutation in existing_permutations and mirror_permutation in existing_permutations:
-            results.append('W')  # Both exist
+            results.append("'W'")  # Both exist
         elif permutation in existing_permutations:
-            results.append('A')  # Only permutation exists
+            results.append("'A'")  # Only permutation exists
         elif mirror_permutation in existing_permutations:
-            results.append('D')  # Only mirror exists
+            results.append("'D'")  # Only mirror exists
         else:
-            results.append('S')  # None exist
+            results.append("'S'")  # None exist
         print(permutation)
     # Write the results to the output file
     with open(output_file, 'w') as file:
-        file.write(' '.join(results))
+        file.write(','.join(results))
 
 # Main execution
 if __name__ == "__main__":
