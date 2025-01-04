@@ -4,4 +4,5 @@ project(BoggleCLI C)
 set(CMAKE_C_STANDARD 11)
 
 # Include the resource in your executable
-add_executable(BoggleCLI main.c)
+add_executable(BoggleCLI main.c
+        "Generator Scripts/PolykingGenerator.c")

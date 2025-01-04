@@ -55,6 +55,12 @@ build CMakeFiles/BoggleCLI.dir/main.c.obj: C_COMPILER__BoggleCLI_unscanned_Debug
   OBJECT_DIR = CMakeFiles\BoggleCLI.dir
   OBJECT_FILE_DIR = CMakeFiles\BoggleCLI.dir
 
+build CMakeFiles/BoggleCLI.dir/Generator_Scripts/PolykingGenerator.c.obj: C_COMPILER__BoggleCLI_unscanned_Debug C$:/Users/hatoa/CLionProjects/BoggleCLI/Generator$ Scripts/PolykingGenerator.c || cmake_object_order_depends_target_BoggleCLI
+  DEP_FILE = CMakeFiles\BoggleCLI.dir\Generator_Scripts\PolykingGenerator.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\BoggleCLI.dir
+  OBJECT_FILE_DIR = CMakeFiles\BoggleCLI.dir\Generator_Scripts
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target BoggleCLI
@@ -63,7 +69,7 @@ build CMakeFiles/BoggleCLI.dir/main.c.obj: C_COMPILER__BoggleCLI_unscanned_Debug
 #############################################
 # Link the executable BoggleCLI.exe
 
-build BoggleCLI.exe: C_EXECUTABLE_LINKER__BoggleCLI_Debug CMakeFiles/BoggleCLI.dir/main.c.obj
+build BoggleCLI.exe: C_EXECUTABLE_LINKER__BoggleCLI_Debug CMakeFiles/BoggleCLI.dir/main.c.obj CMakeFiles/BoggleCLI.dir/Generator_Scripts/PolykingGenerator.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\BoggleCLI.dir
