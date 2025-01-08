@@ -98,7 +98,7 @@ char* polykingToString(const int* polyking) {
                 goto End;
             }
         }
-        strcat(returnstring, "0");
+        strcat(returnstring, "_");
         End:
     }
     return returnstring;
