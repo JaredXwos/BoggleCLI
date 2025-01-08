@@ -2,7 +2,7 @@
 // Created by hatoa on 8/1/2025.
 //
 #include <stdio.h>
-
+#include "speedpuzzler.h"
 #include "tripletquizzer.h"
 int main(){
     while(1) {
@@ -23,8 +23,8 @@ int main(){
                     tripletquizzer();
                 break;
                 case '2':
+                    speedpuzzler();
                     while (getchar() != '\n'){}
-                    printf("Not implemented!");
                 break;
                 default:
                     printf("Exiting the program. Goodbye!\n");

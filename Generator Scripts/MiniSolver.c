@@ -194,14 +194,19 @@ int main(){
         resolvePolyking(buffer);
 
         // Write the input string to the output file
-        fprintf(outputFile, ":%s\n", buffer);
+        //for (int i = 0; i < 16; i += 4) printf("%.4s\n", &buffer[i]); // Print 4 characters at a time
+
+        fprintf(outputFile, "{\"%s\", (const char *[]){", buffer);
 
         // Write all strings from the global list to the output file
         struct unfilteredstring *current = head;
         while (current) {
-            fprintf(outputFile, "%s\n", current->string);
+            fprintf(outputFile, "\"%s\",", current->string);
+            //printf("%s, ", current->string);
             current = current->next;
         }
+        fprintf(outputFile, "NULL}},");
+        //printf("");
     }
     freeHead();
     fclose(inputFile);

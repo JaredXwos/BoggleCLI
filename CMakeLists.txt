@@ -8,4 +8,5 @@ add_executable(BoggleCLI tripletquizzer.c
         tripletquizzer.h
         main.c
         speedpuzzler.c
-        speedpuzzler.h)
+        speedpuzzler.h
+        puzzlerinit.c)
