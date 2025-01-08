@@ -23,7 +23,7 @@ void print_king(const char king[17]) {
 }
 
 // Function to check if a word exists in the list of answers
-int is_correct_answer(const char *word, char **answers) {
+int is_correct_answer(const char *word, const char **answers) {
     for (int i = 0; answers[i] != NULL; i++) {
         if (strcmp(word, answers[i]) == 0) {
             return 1; // Word found in answers
@@ -33,7 +33,7 @@ int is_correct_answer(const char *word, char **answers) {
 }
 
 // Function to count the total number of correct answers in the board
-int count_total_answers(char **answers) {
+int count_total_answers(const char **answers) {
     int count = 0;
     while (answers[count] != NULL) {
         count++;
@@ -51,8 +51,8 @@ int speedpuzzler() {
     printf("This quiz provides a limited preset board. Type all valid words findable on the board.\n"
            "Press enter after every word.\n"
            "Type space and press enter to exit\n");
-
-     int question_count = 0;
+    while (getchar() != '\n'){}
+    int question_count = 0;
 
     while (1) {
         // Increment the question count and pick a random board
