@@ -8,7 +8,11 @@ struct board {
     const char king[17];
     const char **answer;
 };
-extern const struct board list[];
-extern const int total_boards;
-int speedpuzzler();
+extern const struct board ester_list[];
+extern const struct board rates_list[];
+extern const struct board least_list[];
+extern const int ester_total;
+extern const int rates_total;
+extern const int least_total;
+int speedPuzzler(const char* five);
 #endif //SPEEDPUZZLER_H
