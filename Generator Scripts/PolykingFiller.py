@@ -9,7 +9,7 @@ with open(input_file, "r") as file:
     strings = [line.strip() for line in file.readlines()]
 
 # Generate all permutations of 'ESTER'
-permutations = list(itertools.permutations("ESTER"))
+permutations = list(itertools.permutations("LEAST"))
 
 # List to store the transformed strings
 output_strings = []

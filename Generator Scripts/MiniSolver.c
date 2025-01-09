@@ -5,13 +5,30 @@
 #include <string.h>
 #include <stdio.h>
 
-char inputfile[] = "esterpolykings.txt";
-char outputfile[] = "resolvedesterpolykings.txt";
-static char *validester[] = {
+char inputfile[] = "leastpolykings.txt";
+char outputfile[] = "resolvedleastpolykings.txt";
+static const char *const validester[] = {
     "ERE", "ERES", "ERS", "ERST", "EST", "ESTER",
     "REE", "REES", "REEST", "RES", "RESET", "REST", "RET", "RETE", "RETS",
     "SEE", "SEER", "SER", "SERE", "SET", "STEER", "STERE",
     "TEE", "TEER", "TEERS", "TEES", "TERES", "TERSE", "TES", "TREE", "TREES", "TRES"
+};
+
+static const char *const validrates[] = {
+    "ARE", "ARES", "ARET", "ARETS", "ARS", "ARSE", "ART", "ARTS", "ASTER", "ATE", "ATES", "ATS",
+    "EAR", "EARS", "EARST", "EAS", "EAST", "EAT", "EATS", "ERA", "ERAS", "ERS", "ERST", "EST", "ETA", "ETAS",
+    "RAS", "RASE", "RAST", "RAT", "RATE", "RATES", "RATS", "REAST", "RES", "RESAT", "REST", "RET", "RETS",
+    "SAE", "SAR", "SAT", "SATE", "SEA", "SEAR", "SEAT", "SER", "SERA", "SET", "SETA", "STAR", "STARE", "STRAE",
+    "TAE", "TAES", "TAR", "TARE", "TARES", "TARS", "TAS", "TASE", "TASER", "TEA", "TEAR", "TEARS", "TEAS", "TERAS",
+    "TES", "TRES", "TSAR"
+};
+
+static const char *const validleast[] = {
+    "TES", "SET", "EST", "TEL", "LET", "ELT", "SEL", "ELS", "TAS", "SAT", "ATS", "LAT", "ALT", "SAL" "LAS", "TEA",
+    "TAE", "ETA", "EAT", "ATE", "SEA", "SAE", "EAS", "LEA", "ALE", "TELS", "LETS", "ELTS", "LEST", "SLAT", "SALT",
+    "LATS", "LAST", "ALTS", "TEAS", "TASE", "TAES", "SETA", "SEAT", "SATE", "ETAS", "EATS", "EAST", "ATES", "TELA"
+    "TEAL", "TALE", "TAEL", "LEAT", "LATE", "SLAE", "SEAL", "SALE", "LEAS", "LASE", "ALES", "TESLA", "TEALS", "TALES",
+    "TAELS", "STELA", "STEAL", "STALE", "SLATE", "SETAL", "SALET", "LEATS", "LEAST"
 };
 
 struct node {
@@ -123,8 +140,8 @@ void filterhead(const char* minidict) {
 
     while (current) {
         if(!strcmp("ester", minidict)){
-            for (int i = 0; i < sizeof(validester)/sizeof(validester[0]); i++) {
-                if (!strcmp(current->string, validester[i])) {
+            for (int i = 0; i < sizeof(validleast)/sizeof(validleast[0]); i++) {
+                if (!strcmp(current->string, validleast[i])) {
                     prev = current;
                     current = current->next;
                     goto End;
@@ -184,7 +201,7 @@ int main(){
     }
 
     char buffer[17];  // Buffer to read lines from the file
-
+    int counter = 0;
     while (fgets(buffer, sizeof(buffer), inputFile)) {
         // Remove newline character, if present
         buffer[strcspn(buffer, "\n")] = '\0';
@@ -202,12 +219,13 @@ int main(){
         struct unfilteredstring *current = head;
         while (current) {
             fprintf(outputFile, "\"%s\",", current->string);
-            //printf("%s, ", current->string);
+            if(!(++counter % 1000)) printf(".");
             current = current->next;
         }
         fprintf(outputFile, "NULL}},");
         //printf("");
     }
+    printf("\n%d ", counter);
     freeHead();
     fclose(inputFile);
     fclose(outputFile);

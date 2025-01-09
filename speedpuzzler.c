@@ -41,11 +41,25 @@ int count_total_answers(const char **answers) {
     return count;
 }
 
-int speedpuzzler() {
+int speedPuzzler(const char* five) {
 #ifdef _WIN32
     enableANSI(); // Enable ANSI support on Windows
 #endif
-
+    const struct board *list;
+    int total;
+    if(!strcmp(five, "ester")) {
+        list = ester_list;
+        total = ester_total;
+    }
+    else if(!strcmp(five, "rates")){
+        list = rates_list;
+        total = rates_total;
+    }
+    else if(!strcmp(five, "least")){
+        list = least_list;
+        total = least_total;
+    }
+    else return 1;
     // Seed the random number generator
     srand(time(NULL));
     printf("This quiz provides a limited preset board. Type all valid words findable on the board.\n"
@@ -57,7 +71,7 @@ int speedpuzzler() {
     while (1) {
         // Increment the question count and pick a random board
         question_count++;
-        int random_index = rand() % total_boards;
+        const int random_index = rand() % total;
         const struct board *current_board = &list[random_index];
 
         printf("\n--- Question %d ---\n", question_count);

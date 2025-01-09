@@ -9,7 +9,9 @@ int main(){
         printf(
       "\nWelcome to the boggle practice CLI!\n"
       "Press 1 to access the triplet quizzer\n"
-      "Press 2 to access the boggle puzzles\n"
+      "Press 2 to access the 'ester' boggle puzzles\n"
+      "Press 3 to access the 'rates' boggle puzzles\n"
+      "Press 4 to access the 'least' boggle puzzles\n"
       "Press anything else to exit\n"
     );
 
@@ -23,8 +25,16 @@ int main(){
                     tripletquizzer();
                 break;
                 case '2':
-                    speedpuzzler();
+                    speedPuzzler("ester");
                     while (getchar() != '\n'){}
+                break;
+                case '3':
+                    speedPuzzler("rates");
+                    while (getchar() != '\n'){}
+                break;
+                case '4':
+                    speedPuzzler("least");
+                while (getchar() != '\n'){}
                 break;
                 default:
                     printf("Exiting the program. Goodbye!\n");
